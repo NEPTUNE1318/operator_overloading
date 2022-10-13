@@ -20,11 +20,25 @@ public:
         return temp;
     }
 
-    Number operator+(Number& num) {
-        return Number(num_ + num.num_);
-    }
     Number operator+(int num) {
         return Number(num_ + num);
+    }
+
+    Number operator-(int num) {
+        return Number(num_ - num);
+    }
+
+    Number operator*(int num) {
+        return Number(num_ * num);
+    }
+
+    Number operator/(int num) {
+        return Number(num_ / num);
+    }
+
+    Number operator=(int num) {
+        num_ = num;
+        return *this;
     }
 
     Number operator+=(int num) {
@@ -43,12 +57,16 @@ public:
         return this->num_ /= num;
     }
 
+    bool operator==(int num) {
+        return this->num_ == num;
+    }
+
     void printNum() const { std::cout << num_ << std::endl; }
 };
 
 int main() {
     Number num1(3);
-    num1 -= 3;
-
-    num1.printNum();
+    num1 = 2;
+    
+    if(num1 == 2) num1.printNum();
 }
